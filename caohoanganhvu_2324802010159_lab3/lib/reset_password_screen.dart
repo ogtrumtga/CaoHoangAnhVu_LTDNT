@@ -10,12 +10,13 @@ class ResetPasswordScreen extends StatefulWidget {
 
 class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
   final _formKey = GlobalKey<FormState>();
+  final passwordController = TextEditingController();
   final emailController = TextEditingController();
   final api = ApiService();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Sign up')),
+      appBar: AppBar(title: Text('Reset Password')),
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Form(
@@ -46,11 +47,32 @@ class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
                 },
               ),
               const SizedBox(height: 10,),
+              SizedBox(height: 10,),
+              TextFormField(
+                controller: passwordController,
+                obscureText: true,
+                decoration: const InputDecoration(
+                  labelText: 'Password',
+                  border: OutlineInputBorder(),
+                ),
+                validator: (value){
+                  if (value == null || value.isEmpty)
+                  {
+                    return 'The field cannot be empty';
+                  }
+                  if (value.length < 7)
+                  {
+                    return 'The password length must be at least 7 characters';
+                  }
+                  return null;
+                },
+              ),
               ElevatedButton(onPressed: () async {
                 if (_formKey.currentState!.validate())
                 {
                   await api.put('user', {
                     'email' : emailController.text,
+                    'password' : passwordController.text
                   });
                   showDialog(context: context, builder: (_) => const AlertDialog(
                       title: Text('Successfully'),

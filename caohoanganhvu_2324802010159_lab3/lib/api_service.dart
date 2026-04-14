@@ -25,8 +25,14 @@ class ApiService {
   Future<void> put(String endpoint, Map<String, dynamic> data) async
   {
     try {
-      final response = await dio.put("$baseUrl/$endpoint", data: data);
-      print(response);
+      final email = data['email'];
+      final response = await dio.get("$baseUrl/$endpoint?email=$email");
+      print(response.data);
+      final data2 = response.data[0];
+      print(data2['id']);
+      final String id = data2['id'].toString();
+      final respone2 = await dio.put("$baseUrl/$endpoint/$id", data: data);
+      print(respone2.data);
     } catch (e) {
       print(e);
     }
