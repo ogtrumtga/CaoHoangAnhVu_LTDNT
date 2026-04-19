@@ -25,20 +25,25 @@ class LayoutApp extends StatelessWidget {
         const Text('Cao Hoang Anh Vu 2324802010159'),
         const SizedBox(height: 20),
         Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            for (var color in [Colors.red, Colors.green, Colors.blue])
-              Container(width: 100, height: 100, color: color),
+            Container(width: 100, height: 100, color: Colors.red),
+            Container(width: 100, height: 100, color: Colors.blue),
+
+            Container(width: 100, height: 100, color: Colors.green),
           ],
         ),
         const SizedBox(height: 20),
         Stack(
-          alignment: Alignment.center,
+          alignment: Alignment.topLeft,
           children: [
             Container(width: 300, height: 200, color: Colors.yellow),
-            const Text(
-              'Stacked on Yellow Box',
-              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+            Padding(
+              padding: const EdgeInsets.all(100),
+              child: const Text(
+                'Stacked on Yellow Box',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+              ),
             ),
           ],
         ),
