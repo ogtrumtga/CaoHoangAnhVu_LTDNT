@@ -6,11 +6,11 @@ class TokenHandler {
   String _jwtToken = "";
 
   void addToken(String token) {
-    if (token.isNotEmpty)
-    {
-        _jwtToken = token;
+    if (token.isNotEmpty) {
+      _jwtToken = token;
     }
   }
+
   String getToken() {
     return _jwtToken;
   }

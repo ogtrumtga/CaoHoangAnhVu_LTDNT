@@ -39,9 +39,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
       var result = await http.post(
         Uri.parse(ApiEndpoints.register),
-        headers: {
-          'Content-Type': 'application/json; charset=UTF-8',
-        },
+        headers: {'Content-Type': 'application/json; charset=UTF-8'},
         body: jsonEncode(registerData.toJson()),
       );
 
@@ -95,7 +93,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     passwordTextField(passwordController: _passwordController),
                     const SizedBox(height: 10),
                     phoneNumberField(
-                        phoneNumberController: _phoneNumberController),
+                      phoneNumberController: _phoneNumberController,
+                    ),
                     const SizedBox(height: 10),
                     submitButton(
                       context: context,

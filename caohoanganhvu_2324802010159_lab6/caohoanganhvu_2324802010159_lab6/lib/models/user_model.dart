@@ -10,7 +10,7 @@ class UserModel {
     this.phoneNumber,
     this.roles,
   });
-  
+
   factory UserModel.fromJson(Map<String, dynamic> json) {
     return UserModel(
       id: json['id'] as String,
@@ -19,8 +19,4 @@ class UserModel {
       roles: json['roles'] != null ? List<String>.from(json['roles']) : null,
     );
   }
-  
-
-  
-
 }

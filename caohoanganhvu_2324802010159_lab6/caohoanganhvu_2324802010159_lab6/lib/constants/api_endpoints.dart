@@ -9,11 +9,13 @@ class ApiEndpoints {
 
   static const String adminRolesCrud = "$apiUri/api/Admin/roles";
 
-  static const String adminChangeUserRole = "$apiUri/api/Admin/change-user-role";
+  static const String adminChangeUserRole =
+      "$apiUri/api/Admin/change-user-role";
 
   static const String adminInfoGetAndUpdate = "$apiUri/api/Admin/admin-info";
 
-  static const String adminChangePassword = "$apiUri/api/Admin/change-admin-password";
+  static const String adminChangePassword =
+      "$apiUri/api/Admin/change-admin-password";
 
   static const String userInfoReadUpdate = "$apiUri/api/User/user-info";
 

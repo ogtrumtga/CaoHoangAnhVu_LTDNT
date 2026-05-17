@@ -1,15 +1,15 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
-import 'package:user_management/admin_area/assign_role.dart';
-import 'package:user_management/constants/api_endpoints.dart';
-import 'package:user_management/constants/app_colors.dart';
-import 'package:user_management/constants/token_handler.dart';
-import 'package:user_management/models/user_model.dart';
-import 'package:user_management/services/role_check.dart';
-import 'package:user_management/shared/custom_appbar.dart';
+import 'package:caohoanganhvu_2324802010159_lab6/admin_area/assign_role.dart';
+import 'package:caohoanganhvu_2324802010159_lab6/constants/api_endpoints.dart';
+import 'package:caohoanganhvu_2324802010159_lab6/constants/app_colors.dart';
+import 'package:caohoanganhvu_2324802010159_lab6/constants/token_handler.dart';
+import 'package:caohoanganhvu_2324802010159_lab6/models/user_model.dart';
+import 'package:caohoanganhvu_2324802010159_lab6/services/role_check.dart';
+import 'package:caohoanganhvu_2324802010159_lab6/shared/custom_appbar.dart';
 import 'package:http/http.dart' as http;
-import 'package:user_management/shared/error_dialog.dart';
+import 'package:caohoanganhvu_2324802010159_lab6/shared/error_dialog.dart';
 
 class SelectUser extends StatefulWidget {
   const SelectUser({super.key});
@@ -77,18 +77,12 @@ class _SelectUserState extends State<SelectUser> {
               final user = users[index];
               return ListTile(
                 title: Text(user.email),
-                leading: CircleAvatar(
-                  child: Text(
-                    user.email[0].toUpperCase(),
-                  ),
-                ),
+                leading: CircleAvatar(child: Text(user.email[0].toUpperCase())),
                 trailing: IconButton(
                   onPressed: () {
                     Navigator.of(context).push(
                       MaterialPageRoute(
-                        builder: (context) => AssignRole(
-                          email: user.email,
-                        ),
+                        builder: (context) => AssignRole(email: user.email),
                       ),
                     );
                   },
@@ -97,9 +91,7 @@ class _SelectUserState extends State<SelectUser> {
                 onTap: () {
                   Navigator.of(context).push(
                     MaterialPageRoute(
-                      builder: (context) => AssignRole(
-                        email: user.email,
-                      ),
+                      builder: (context) => AssignRole(email: user.email),
                     ),
                   );
                 },
